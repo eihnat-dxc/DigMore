@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-### DigMore v1.2.1 - Pavol Leskovsky ###
+### DigMore v1.2.2 - Pavol Leskovsky ###
 use Term::ANSIColor;
 
 chomp ($home=`echo \$HOME`);
@@ -7,7 +7,7 @@ $home .="/";
 chomp ($timezone=`date +%Z`);
 $answfile="answ.dm";        # ___---- constants section ----___
 $noexfile="noex.dm";
-$maxfile=20000;
+$maxfile=50000;
 $aaf=";; flags:";
 $answerf=";; ANSWER SECTION:";
 $clraa='bold white';
@@ -61,7 +61,7 @@ sub dg {                                # ___---- resolving function ----___
     if (jecislo($q)) {
        $q = "-x ".$q;
     }
-    @in=`dig $q +time=3 +tries=2`;               # ######## DIG ######## #
+    @in=`dig $q $ARGV[1] +time=3 +tries=2`;               # ######## DIG ######## #
     $aaflag=0;
     $dflag=0;
     $i=0;
